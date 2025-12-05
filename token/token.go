@@ -24,10 +24,12 @@ const (
 	SLASH    = "/"
 
 	// Delimiters
-	LPAREN = "("
-	RPAREN = ")"
-	LBRACE = "{"
-	RBRACE = "}"
+	LPAREN    = "("
+	RPAREN    = ")"
+	LBRACE    = "{"
+	RBRACE    = "}"
+	COMMA     = ","
+	SEMICOLON = ";"
 
 	// Keywords
 	FUNCTION = "fn"
@@ -38,3 +40,15 @@ const (
 	ELSE     = "else"
 	RETURN   = "return"
 )
+
+var keywords = map[string]TokenType{
+	"fn":  FUNCTION,
+	"let": LET,
+}
+
+func LookupIndent(ident string) TokenType {
+	if tok, ok := keywords[ident]; ok {
+		return tok
+	}
+	return IDENT
+}
