@@ -10,7 +10,7 @@ type Lexer struct {
 	input        string
 	position     int // current position in input (points to current char)
 	readPosition int // current reading position in input (after current char)
-	// By choosing byte we are limiting character range supported by Monkey to UTF-8
+	// By choosing byte we are limiting character range supported by Npolfz to UTF-8
 	ch byte // current char under examination
 }
 
